@@ -72,7 +72,8 @@ class Sequence:
         
         param mode: string, name of reference genome.
         """
-        self.ref_filename = "reference_genome_" + self.filename  # name of the new reference genome file 
+        basename = os.path.basename(self.filename)
+        self.ref_filename = "reference_genome_" + basename  # name of the new reference genome file 
         bash_command = "grep -A1 '" + ref_name + "' " + self.filename + " > " + self.ref_filename
         os.system(bash_command)  # obtain the reference genome
         
